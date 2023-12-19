@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+/classes
+/.idea
+build/
+picture/
+webLibrary.iml
+doc/
+.settings
+.classpath
+.project
+xinhua-Library.iml
