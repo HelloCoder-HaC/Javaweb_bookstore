@@ -6,32 +6,24 @@ Javaweb_bookstore，一个基于servlet+jsp+bootstrap 的MVC图书销售管理�
 - 可以用做大作业、毕业设计
 - 有完整的代码注释
 
-## 开发环境：
+## 1、开发环境：
   Tomcat版本：v8.5
   MySQL版本：v8.0
   JDK:1.8.0_171
 
-（没有用到任何框架，都是servlet，前端是JSP+bootstrap）
+（后端没有用到任何框架，都是servlet，比较简单，前端是JSP+bootstrap）
 
-##  功能模块
+##  2、功能模块
 
 ![](https://cdn.jsdelivr.net/gh/DogerRain/image@main/Home/image-20210509175643885.png)
 
-## 部署
+## 3、本地开发
 
 ### 1、导入sql
 
 找到sql文件，导入到数据库，并且在下一步导入代码后，修改数据库的用户名和密码。
 
-### 2、使用IDE导入代码
-
-这里分两种情况，
-
-- 如果你是使用eclipse开发（我用的是IDEA开发）
-
-这里就不需要使用 
-
-- 如果你是和我一样，使用IDEA，导入比较复杂
+### 2、使用IDEA导入代码
 
 第一步先导入项目，使用eclipse的方式导入，如果不是，那么接下来会复杂，还需要设置src和resources目录。
 
@@ -68,7 +60,15 @@ Javaweb_bookstore，一个基于servlet+jsp+bootstrap 的MVC图书销售管理�
 
 Deployment 不要设置Application context！
 
-## 功能页面
+
+
+### 3、eclipse 
+
+项目带有eclipse 标识，基本上按照以上配置即可。
+
+但是不要使用默认的 context 路径
+
+## 4、功能页面
 
 ### 用户端：
 
@@ -102,9 +102,9 @@ Deployment 不要设置Application context！
 
 管理员账号密码：admin  / 123
 
-## A&Q
+## 5、A&Q
 
-1、项目是从其他地方copy过来的修改了，刚拿到这个项目的时候，一堆bug，经过了一系列的重构，功能也比之前多了。
+1、项目是从其他地方copy过来的二开的，刚拿到这个项目的时候，一堆bug，经过了一系列的重构，功能也比之前多了。
 
 但是`立即购买`的这个模块就没有做了（先通过加入购物车再立即购买就可以了）。。。。，大家可以自己完善一下功能，比如说：
 
@@ -120,13 +120,7 @@ Deployment 不要设置Application context！
 
 
 
-**项目仅供学习参考使用。如果有问题，请先看README，无法解决再给我提疑问。**
+## 6、声明|费用
 
+本项目存在文件缺少，且不再提供免费使用，如要获取，请联系本人。
 
-
-
-至于Bug嘛，就肯定有的，另外如果有什么问题，可以联系我：
-
-（如果项目还不错，举手之劳点个`star`，筒子们，感谢）
-
-![](https://cdn.jsdelivr.net/gh/DogerRain/image@main/Home/wuli_HelloCoder.png)
