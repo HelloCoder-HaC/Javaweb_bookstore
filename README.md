@@ -122,5 +122,8 @@ Deployment 不要设置Application context！
 
 ## 6、声明|费用
 
-本项目存在文件缺少，且不再提供免费使用，如要获取，请联系本人。
+本项目存在文件缺少，且不再提供免费使用，有偿出售39块钱，酌情购买，需要请联系wx: HaC200 
 
+更多毕设参考：
+
+[毕设项目 | HelloCoder (baimuxym.cn)](https://learnjava.baimuxym.cn/pages/JavaWeb图书销售管理系统-网上书店/)
