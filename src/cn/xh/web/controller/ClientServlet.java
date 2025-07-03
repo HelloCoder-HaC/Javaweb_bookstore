@@ -31,66 +31,66 @@ public class ClientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
-		String op = req.getParameter("op");// µÃµ½´«¹ıÀ´µÄÇëÇó
+		String op = req.getParameter("op");// å¾—åˆ°ä¼ è¿‡æ¥çš„è¯·æ±‚
 		if (op != null && !op.equals("")) {
-			// µÇÂ¼
+			// ç™»å½•
 			if (op.equals("login")) {
 				login(req, resp);
 			}
-			// ×¢Ïú
+			// æ³¨é”€
 			if (op.equals("layout")) {
 				layout(req, resp);
 			}
-			// ×¢²á
+			// æ³¨å†Œ
 			if (op.equals("register")) {
 				register(req, resp);
 			}
-			// ÎÄÑ§ÒÕÊõÀàÊé¼®ÁĞ±í
+			// æ–‡å­¦è‰ºæœ¯ç±»ä¹¦ç±åˆ—è¡¨
 			if (op.equals("category")) {
 				getCategoryBook(req, resp);
 			}
 
-			// ¸öÈËĞÅÏ¢ĞŞ¸Ä
+			// ä¸ªäººä¿¡æ¯ä¿®æ”¹
 			if (op.equals("personInformation")) {
 				personInformation(req, resp);
 			}
-			// ĞŞ¸ÄÃÜÂë
+			// ä¿®æ”¹å¯†ç 
 			if (op.equals("personPassword")) {
 				personPassword(req, resp);
 			}
-			// ËÑË÷¿ò
+			// æœç´¢æ¡†
 			if (op.equals("search")) {
 				search(req, resp);
 			}
-			// ÏêÇéÒ³Ãæ
+			// è¯¦æƒ…é¡µé¢
 			if (op.equals("particulars")) {
 				particulars(req, resp);
 			}
-			// Ìí¼Ó¹ºÎï³µ
+			// æ·»åŠ è´­ç‰©è½¦
 			if (op.equals("addCart")) {
 				addCart(req, resp);
 			}
-			// É¾³ı¹ºÎï³µÖĞµÄ¹ºÎïÏî
+			// åˆ é™¤è´­ç‰©è½¦ä¸­çš„è´­ç‰©é¡¹
 			if (op.equals("delItem")) {
 				delItem(req, resp);
 			}
-			// ĞŞ¸Ä¹ºÎïÏîÊıÁ¿
+			// ä¿®æ”¹è´­ç‰©é¡¹æ•°é‡
 			if (op.equals("changeNum")) {
 				changeNum(req, resp);
 			}
-			// Ìí¼ÓÊÕ²Ø¼Ğ
+			// æ·»åŠ æ”¶è—å¤¹
 			if (op.equals("addfavorite")) {
 				addfavorite(req, resp);
 			}
-			// ÏÔÊ¾ÊÕ²Ø¼Ğ
+			// æ˜¾ç¤ºæ”¶è—å¤¹
 			if (op.equals("showfavorite")) {
 				showfavorite(req, resp);
 			}
-			// É¾³ıÊÕ²Ø¼Ğ
+			// åˆ é™¤æ”¶è—å¤¹
 			if (op.equals("delFavorite")) {
 				delFavorite(req, resp);
 			}
-			// É¾³ıÊÕ²Ø¼Ğ
+			// åˆ é™¤æ”¶è—å¤¹
 			if (op.equals("buyNow")) {
 				buNow(req, resp);
 			}
@@ -107,7 +107,7 @@ public class ClientServlet extends HttpServlet {
 		while (iterator.hasNext()) {
 			Favorite favorite = iterator.next();
 			if (book_id.equals(favorite.getBook().getBook_id())) {
-				iterator.remove();// Ê¹ÓÃµü´úÆ÷µÄÉ¾³ı·½·¨É¾³ı
+				iterator.remove();// ä½¿ç”¨è¿­ä»£å™¨çš„åˆ é™¤æ–¹æ³•åˆ é™¤
 			}
 		}
 		resp.sendRedirect(req.getContextPath() + "/favorite.jsp");
@@ -135,7 +135,7 @@ public class ClientServlet extends HttpServlet {
 	private void changeNum(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String num = req.getParameter("num");
 		String book_id = req.getParameter("book_id");
-		// È¡³ö¹ºÎï³µ
+		// å–å‡ºè´­ç‰©è½¦
 		Cart cart = (Cart) req.getSession().getAttribute("cart");
 		CartItem item = cart.getItmes().get(book_id);
 		item.setQuantity(Integer.parseInt(num));
@@ -149,11 +149,11 @@ public class ClientServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user = service.login(username, password);
 		if (user.getUsername() != null && user.getUsername() != "") {
-			req.setAttribute("message", "µÇÂ½³É¹¦");
+			req.setAttribute("message", "ç™»é™†æˆåŠŸ");
 			session.setAttribute("user", user);
 			req.getRequestDispatcher("/message.jsp").forward(req, resp);
 		} else {
-			req.setAttribute("message", "ÓÃ»§Ãû»òÃÜÂë´íÎó£¬ÇëÖØĞÂµÇÂ¼");
+			req.setAttribute("message", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯ï¼Œè¯·é‡æ–°ç™»å½•");
 			req.getRequestDispatcher("/message.jsp").forward(req, resp);
 		}
 	}
@@ -161,7 +161,7 @@ public class ClientServlet extends HttpServlet {
 	private void layout(HttpServletRequest req, HttpServletResponse resp) {
 		try {
 			HttpSession session = req.getSession();
-			session.removeAttribute("user");// »ñÈ¡session¶ÔÏó£¬´ÓsessionÖĞÒÆ³ıµÇÂ½ĞÅÏ¢
+			session.removeAttribute("user");// è·å–sessionå¯¹è±¡ï¼Œä»sessionä¸­ç§»é™¤ç™»é™†ä¿¡æ¯
 			resp.sendRedirect("/client/ClientServlet?op=category");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -177,16 +177,16 @@ public class ClientServlet extends HttpServlet {
 			String tel = req.getParameter("tel");
 			String address = req.getParameter("address");
 
-			boolean isExist = false;// ÅĞ¶ÏÊÇ·ñ´æÔÚ¸ÃÓÃ»§
+			boolean isExist = false;// åˆ¤æ–­æ˜¯å¦å­˜åœ¨è¯¥ç”¨æˆ·
 
 			if (!username.equals("") && !password.equals("")) {
 				isExist = service.register(username, password, name, sex, tel, address);
 				if (isExist == true) {
-					resp.getWriter().write("¸ÃÓÃ»§ÒÑ¾­×¢²á£¬ÇëÖ±½Ó");
-					resp.getWriter().write("<a href='" + req.getContextPath() + "/client/ClientServlet?op=category'>µÇÂ¼</a>");
+					resp.getWriter().write("è¯¥ç”¨æˆ·å·²ç»æ³¨å†Œï¼Œè¯·ç›´æ¥");
+					resp.getWriter().write("<a href='" + req.getContextPath() + "/client/ClientServlet?op=category'>ç™»å½•</a>");
 				} else {
-					resp.getWriter().write("×¢²á³É¹¦!");
-					resp.getWriter().write("2sºóÌøÍùµÇÂ¼Ò³");
+					resp.getWriter().write("æ³¨å†ŒæˆåŠŸ!");
+					resp.getWriter().write("2såè·³å¾€ç™»å½•é¡µ");
 					resp.setHeader("Refresh", "2;URL=" + req.getContextPath() + "/client/ClientServlet?op=category");
 				}
 			}
@@ -196,7 +196,7 @@ public class ClientServlet extends HttpServlet {
 	}
 
 	private void getCategoryBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Book> books = service.getCategoryBook(req.getParameter("cid"));// ÎÄÑ§ÒÕÊõÀàÊé¼®
+		List<Book> books = service.getCategoryBook(req.getParameter("cid"));// æ–‡å­¦è‰ºæœ¯ç±»ä¹¦ç±
 		req.setAttribute("books", books);
 		List<Category> categoryList= managerService.findAllCategory();
 		req.setAttribute("categoryList", categoryList);
@@ -213,7 +213,7 @@ public class ClientServlet extends HttpServlet {
 
 		service.personInformation(username, name, sex, tel, address);
 		resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-				+ "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+				+ "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
 	}
 
 	private void personPassword(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -223,7 +223,7 @@ public class ClientServlet extends HttpServlet {
 
 		service.personPassword(password, username);
 		resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-				+ "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+				+ "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
 	}
 
 	private void search(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -240,7 +240,7 @@ public class ClientServlet extends HttpServlet {
 		req.getRequestDispatcher("/particulars.jsp").forward(req, resp);
 	}
 
-	// Í¨¹ıÊé¼®idÕÒµ½Êé¼®ĞÅÏ¢
+	// é€šè¿‡ä¹¦ç±idæ‰¾åˆ°ä¹¦ç±ä¿¡æ¯
 	private Book findBookById(String book_id) {
 		Book book = service.findBookById(book_id);
 		return book;

@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-//¶©µ¥
+//è®¢å•
 public class Order implements Serializable {
-	private String ordernum;// ¶©µ¥ºÅ
-	private int quantity;// ¹ºÎïÏîÊıÁ¿
-	private double money;// ×Ü½ğ¶î
-	private String time;// ¶©µ¥´´½¨Ê±¼ä
-	private int status;// ¶©µ¥×´Ì¬£º0Î´¸¶¿î£¬1ÒÑ¸¶¿î£¬2Î´·¢»õ£¬3ÒÑ·¢»õ
-	private User user;// ¿Í»§
+	private String ordernum;// è®¢å•å·
+	private int quantity;// è´­ç‰©é¡¹æ•°é‡
+	private double money;// æ€»é‡‘é¢
+	private String time;// è®¢å•åˆ›å»ºæ—¶é—´
+	private int status;// è®¢å•çŠ¶æ€ï¼š0æœªä»˜æ¬¾ï¼Œ1å·²ä»˜æ¬¾ï¼Œ2æœªå‘è´§ï¼Œ3å·²å‘è´§
+	private User user;// å®¢æˆ·
 
-	private List<Orderitem> items = new ArrayList<Orderitem>();// ¶©µ¥Ïî
+	private List<Orderitem> items = new ArrayList<Orderitem>();// è®¢å•é¡¹
 
 	public String getOrdernum() {
 		return ordernum;

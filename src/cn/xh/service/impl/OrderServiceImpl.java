@@ -15,10 +15,10 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void genOrder(Order o) {
 		if (o.getUser() == null) {
-			throw new IllegalArgumentException("订单所属的客户信息没有");
+			throw new IllegalArgumentException("璁㈠崟鎵�灞炵殑瀹㈡埛淇℃伅娌℃湁");
 		}
 		if (o.getItems() == null || o.getItems().size() == 0) {
-			throw new IllegalArgumentException("订单中没有订单项");
+			throw new IllegalArgumentException("璁㈠崟涓病鏈夎鍗曢」");
 		}
 		dao.save(o);
 	}

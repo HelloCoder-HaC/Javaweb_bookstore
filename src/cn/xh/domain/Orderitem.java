@@ -2,12 +2,12 @@ package cn.xh.domain;
 
 import java.io.Serializable;
 
-//¶©µ¥Ïî
+//è®¢å•é¡¹
 public class Orderitem implements Serializable {
-	private String id;// ¶©µ¥Ïîid
-	private int quantity;// ¶©µ¥ÏîµÃÊıÁ¿
-	private double price;// ¶©µ¥ÏîĞ¡¼Æ
-	private Book book;// Êé¼®ĞÅÏ¢
+	private String id;// è®¢å•é¡¹id
+	private int quantity;// è®¢å•é¡¹å¾—æ•°é‡
+	private double price;// è®¢å•é¡¹å°è®¡
+	private Book book;// ä¹¦ç±ä¿¡æ¯
 	private String ordernum;
 
 	public String getId() {

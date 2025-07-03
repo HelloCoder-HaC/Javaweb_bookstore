@@ -31,20 +31,20 @@ public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
-		String op = req.getParameter("op");// µÃµ½´«¹ıÀ´µÄÇëÇó
-		// Éú³É¶©µ¥
+		String op = req.getParameter("op");// å¾—åˆ°ä¼ è¿‡æ¥çš„è¯·æ±‚
+		// ç”Ÿæˆè®¢å•
 		if (op.equals("genOrder")) {
 			genOrder(req, resp);
 		}
-		// ²é¿´¶©µ¥
+		// æŸ¥çœ‹è®¢å•
 		if (op.equals("findAllOrders")) {
 			findAllOrders(req, resp);
 		}
-		// ¹ÜÀíÔ±²é¿´¶©µ¥
+		// ç®¡ç†å‘˜æŸ¥çœ‹è®¢å•
 		if (op.equals("findOrders")) {
 			findOrders(req, resp);
 		}
-		// ·¢»õ
+		// å‘è´§
 		if (op.equals("faHuo")) {
 			faHuo(req, resp);
 		}
@@ -76,13 +76,13 @@ public class OrderServlet extends HttpServlet {
 	}
 
 	private void genOrder(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		// È¡³ö¹ºÎï³µĞÅÏ¢
-		// È¡³ö¹ºÎïÏîĞÅÏ¢
+		// å–å‡ºè´­ç‰©è½¦ä¿¡æ¯
+		// å–å‡ºè´­ç‰©é¡¹ä¿¡æ¯
 		HttpSession session = req.getSession();
 		Cart cart = (Cart) session.getAttribute("cart");
 		User user = (User) session.getAttribute("user");
 		if (cart == null) {
-			resp.getWriter().write("»á»°ÒÑ¾­½áÊø£¡£¡");
+			resp.getWriter().write("ä¼šè¯å·²ç»ç»“æŸï¼ï¼");
 			return;
 		}
 		Order order = new Order();
@@ -92,7 +92,7 @@ public class OrderServlet extends HttpServlet {
 		order.setQuantity(cart.getTotalQuantity());
 		order.setMoney(cart.getTotalMoney());
 		order.setUser(user);
-		// ¶©µ¥Ïî
+		// è®¢å•é¡¹
 		List<Orderitem> oItems = new ArrayList<Orderitem>();
 		for (Map.Entry<String, CartItem> me : cart.getItmes().entrySet()) {
 			CartItem cItem = me.getValue();
@@ -104,7 +104,7 @@ public class OrderServlet extends HttpServlet {
 			oItem.setOrdernum(ordernum);
 			oItems.add(oItem);
 		}
-		// ½¨Á¢¶©µ¥ÏîºÍ¶©µ¥µÄ¹ØÏµ
+		// å»ºç«‹è®¢å•é¡¹å’Œè®¢å•çš„å…³ç³»
 		order.setItems(oItems);
 		service.genOrder(order);
 		req.setAttribute("order", order);
@@ -112,7 +112,7 @@ public class OrderServlet extends HttpServlet {
 		req.getRequestDispatcher("/order.jsp").forward(req, resp);
 	}
 
-	// Éú³É¶©µ¥ºÅ
+	// ç”Ÿæˆè®¢å•å·
 	private String genOrdernum() {
 		Date now = new Date();
 		DateFormat df = new SimpleDateFormat("yyyyMMdd");

@@ -9,3 +9,5 @@ doc/
 .classpath
 .project
 xinhua-Library.iml
+out
+*.iml

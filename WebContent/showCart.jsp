@@ -16,7 +16,7 @@
 <body>
 	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<jsp:include page="/header1.jsp"></jsp:include>
+	<jsp:include page="header1.jsp"></jsp:include>
 	<c:if test="${empty sessionScope.cart.itmes}">
 		<div style="margin-left: 600px; margin-top: 100px">
 			<img src="img/gwc.gif" />

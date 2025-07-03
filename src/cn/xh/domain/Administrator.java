@@ -2,16 +2,13 @@ package cn.xh.domain;
 
 import java.io.Serializable;
 
-/*
- * 管理员实体类
- */
 public class Administrator implements Serializable {
 
-	private String username; // 管理员用户名
-	private String password; // 管理员密码
-	private String name; // 管理员姓名
-	private String sex; // 管理员性别
-	private String tel; // 管理员电话
+	private String username;
+	private String password;
+	private String name;
+	private String sex;
+	private String tel;
 
 	public Administrator() {
 		super();

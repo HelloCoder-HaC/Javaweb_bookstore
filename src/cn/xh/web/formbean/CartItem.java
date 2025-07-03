@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 import cn.xh.domain.Book;
 
-//¹ºÎïÏî
+//è´­ç‰©é¡¹
 public class CartItem implements Serializable {
 	private Book book;
-	private int quantity;// ±¾ÏîÊıÁ¿
-	private float money;// ±¾ÏîĞ¡¼Æ
+	private int quantity;// æœ¬é¡¹æ•°é‡
+	private float money;// æœ¬é¡¹å°è®¡
 
 	public CartItem(Book book) {
 		this.book = book;

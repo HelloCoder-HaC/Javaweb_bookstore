@@ -33,28 +33,28 @@ public class ManagerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=UTF-8");
-        String op = req.getParameter("op");// µÃµ½´«¹ıÀ´µÄÇëÇó
-        // ¹ÜÀíÔ±µÇÂ½
+        String op = req.getParameter("op");// å¾—åˆ°ä¼ è¿‡æ¥çš„è¯·æ±‚
+        // ç®¡ç†å‘˜ç™»é™†
         if (op.equals("login")) {
             login(req, resp);
         }
-        // ĞŞ¸Ä¹ÜÀíÔ±×ÊÁÏ
+        // ä¿®æ”¹ç®¡ç†å‘˜èµ„æ–™
         if (op.equals("managerInformation")) {
             managerInformation(req, resp);
         }
-        // ĞŞ¸Ä¹ÜÀíÔ±µÇÂ¼ÃÜÂë
+        // ä¿®æ”¹ç®¡ç†å‘˜ç™»å½•å¯†ç 
         if (op.equals("managerPassword")) {
             managerPassword(req, resp);
         }
-        // ×¢Ïú
+        // æ³¨é”€
         if (op.equals("layout")) {
             layout(req, resp);
         }
-        // Ìí¼ÓÊé¼®Ç°ÏÈ»ñÈ¡ËùÓĞ·ÖÀà
+        // æ·»åŠ ä¹¦ç±å‰å…ˆè·å–æ‰€æœ‰åˆ†ç±»
         if (op.equals("addBookUI")) {
             addBookUI(req, resp);
         }
-        // Ìí¼ÓÊé¼®
+        // æ·»åŠ ä¹¦ç±
         if (op.equals("addBook")) {
             try {
                 addBook(req, resp);
@@ -63,19 +63,19 @@ public class ManagerServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        // Ìí¼ÓÊé¼®·ÖÀà
+        // æ·»åŠ ä¹¦ç±åˆ†ç±»
         if (op.equals("addCategory")) {
             addCategory(req, resp);
         }
-        // ÎÄÑ§ÒÕÊõÀàÊé¼®ÁĞ±í
+        // æ–‡å­¦è‰ºæœ¯ç±»ä¹¦ç±åˆ—è¡¨
         if (op.equals("category")) {
             getCategoryBook(req, resp);
         }
-        // ±à¼­Êé¼®ĞÅÏ¢Ç°»ñÈ¡Êé¼®µÄĞÅÏ¢»ØÏÔ
+        // ç¼–è¾‘ä¹¦ç±ä¿¡æ¯å‰è·å–ä¹¦ç±çš„ä¿¡æ¯å›æ˜¾
         if (op.equals("editBookUI")) {
             editBookUI(req, resp);
         }
-        // ±à¼­Êé¼®
+        // ç¼–è¾‘ä¹¦ç±
         if (op.equals("editBook")) {
             try {
                 editBook(req, resp);
@@ -84,35 +84,35 @@ public class ManagerServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        // É¾³ıÊé¼®
+        // åˆ é™¤ä¹¦ç±
         if (op.equals("delBook")) {
             delBook(req, resp);
         }
-        // »ñÈ¡Êé¼®·ÖÀàÁĞ±í
+        // è·å–ä¹¦ç±åˆ†ç±»åˆ—è¡¨
         if (op.equals("categoryList")) {
             categoryList(req, resp);
         }
-        // »ñµÃ·ÖÀàĞÅÏ¢
+        // è·å¾—åˆ†ç±»ä¿¡æ¯
         if (op.equals("editCategoryUI")) {
             editCategoryUI(req, resp);
         }
-        // ĞŞ¸ÄÊé¼®·ÖÀàĞÅÏ¢
+        // ä¿®æ”¹ä¹¦ç±åˆ†ç±»ä¿¡æ¯
         if (op.equals("editCategory")) {
             editCategory(req, resp);
         }
-        // É¾³ıÊé¼®·ÖÀà
+        // åˆ é™¤ä¹¦ç±åˆ†ç±»
         if (op.equals("delCategory")) {
             delCategory(req, resp);
         }
-        // ÓÃ»§ĞÅÏ¢¹ÜÀí
+        // ç”¨æˆ·ä¿¡æ¯ç®¡ç†
         if (op.equals("findUsers")) {
             findUsers(req, resp);
         }
-        // Ìí¼Ó¹¤×÷ÈËÔ±
+        // æ·»åŠ å·¥ä½œäººå‘˜
         if (op.equals("addAdmin")) {
             addAdmin(req, resp);
         }
-        // Êé¼®ÏúÊÛÇé¿ö
+        // ä¹¦ç±é”€å”®æƒ…å†µ
         if (op.equals("sales")) {
             sales(req, resp);
         }
@@ -133,7 +133,7 @@ public class ManagerServlet extends HttpServlet {
         Administrator admin = new Administrator(username, password, name, sex, tel);
         service.addAdmin(admin);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+                + "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
     }
 
     private void findUsers(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -149,12 +149,12 @@ public class ManagerServlet extends HttpServlet {
         HttpSession session = req.getSession();
         Administrator admin = service.login(username, password);
         if (admin.getUsername() != null && admin.getUsername() != "") {
-            req.setAttribute("message", "µÇÂ½³É¹¦");
+            req.setAttribute("message", "ç™»é™†æˆåŠŸ");
             session.setAttribute("admin", admin);
             req.getRequestDispatcher("/admin/message.jsp").forward(req, resp);
         } else {
             resp.getWriter()
-                    .write("ÎŞ´ËÓÃ»§£¬ÇëÁªÏµ¹ÜÀíÔ±£¡£¡      <a href='/client/ClientServlet?op=category'>·µ»ØÊ×Ò³</a>");
+                    .write("æ— æ­¤ç”¨æˆ·ï¼Œè¯·è”ç³»ç®¡ç†å‘˜ï¼ï¼      <a href='/client/ClientServlet?op=category'>è¿”å›é¦–é¡µ</a>");
         }
 
     }
@@ -172,7 +172,7 @@ public class ManagerServlet extends HttpServlet {
         admin.setTel(tel);
         session.setAttribute("admin", admin);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+                + "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
 
     }
 
@@ -183,7 +183,7 @@ public class ManagerServlet extends HttpServlet {
 
         service.managerPassword(username, password);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+                + "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
     }
 
     private void layout(HttpServletRequest req, HttpServletResponse resp) {
@@ -204,59 +204,59 @@ public class ManagerServlet extends HttpServlet {
     }
 
     private void addBook(HttpServletRequest req, HttpServletResponse resp) throws FileUploadException, IOException {
-        // ÅĞ¶Ï±íµ¥ÊÇ²»ÊÇmultipart/form-dataÀàĞÍ
+        // åˆ¤æ–­è¡¨å•æ˜¯ä¸æ˜¯multipart/form-dataç±»å‹
         boolean isMultipart = ServletFileUpload.isMultipartContent(req);
         if (!isMultipart) {
-            throw new RuntimeException("±íµ¥ÉÏ´«ÀàĞÍÓĞÎó£¡£¡");
+            throw new RuntimeException("è¡¨å•ä¸Šä¼ ç±»å‹æœ‰è¯¯ï¼ï¼");
         }
-        // ´´½¨¹¤³§ÓÃÀ´ ½âÎöÇëÇóÄÚÈİ
+        // åˆ›å»ºå·¥å‚ç”¨æ¥ è§£æè¯·æ±‚å†…å®¹
         DiskFileItemFactory factory = new DiskFileItemFactory();
-        // ¹¹½¨ºËĞÄÀà¶ÔÏó
+        // æ„å»ºæ ¸å¿ƒç±»å¯¹è±¡
         ServletFileUpload sfu = new ServletFileUpload(factory);
         List<FileItem> items = new ArrayList<FileItem>();
         items = sfu.parseRequest(req);
         Book book = new Book();
         for (FileItem item : items) {
             if (item.isFormField()) {
-                // ÆÕÍ¨×Ö¶Î£º°ÑÊı¾İ·Ö×°µ½book¶ÔÏóÖĞ
+                // æ™®é€šå­—æ®µï¼šæŠŠæ•°æ®åˆ†è£…åˆ°bookå¯¹è±¡ä¸­
                 processFormField(item, req, book);
             } else {
-                // ÉÏ´«×Ö¶Î£ºÉÏ´«
+                // ä¸Šä¼ å­—æ®µï¼šä¸Šä¼ 
                 processUplodFiled(item, req, book);
             }
         }
-        // °ÑÊé¼®ĞÅÏ¢±£´æµ½Êı¾İ¿âÖĞ
+        // æŠŠä¹¦ç±ä¿¡æ¯ä¿å­˜åˆ°æ•°æ®åº“ä¸­
         service.addBook(book);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>Ìí¼Ó³É¹¦£¡</div>");
+                + "/img/duigou.png'/>æ·»åŠ æˆåŠŸï¼</div>");
     }
 
-    // ´¦ÀíÎÄ¼şÉÏ´«
+    // å¤„ç†æ–‡ä»¶ä¸Šä¼ 
     private void processUplodFiled(FileItem item, HttpServletRequest req, Book book) {
         try {
-            // ´æ·ÅÂ·¾¶£º²»Òª·ÅÔÚweb-infÖĞ
-            // 01.»ñÈ¡´æ·ÅÎÄ¼şµÄÕæÊµÄ¿Â¼
+            // å­˜æ”¾è·¯å¾„ï¼šä¸è¦æ”¾åœ¨web-infä¸­
+            // 01.è·å–å­˜æ”¾æ–‡ä»¶çš„çœŸå®ç›®å½•
             String dirImages = getServletContext().getRealPath("/images");
 //            String dirImages = getServletContext().getRealPath("/img");
-            // 02. Í¨¹ıio´æÎÄ¼ş
-            // 03. Éú³ÉÎÄ¼şÃû £¨ÓÃ»§ÉÏ´«Í¼Æ¬£¬ Í¼Æ¬Ãû¿ÉÄÜÖØ¸´£©
-            String FieldName = item.getFieldName();// ÊäÈë¿òµÄnameÖµ
+            // 02. é€šè¿‡ioå­˜æ–‡ä»¶
+            // 03. ç”Ÿæˆæ–‡ä»¶å ï¼ˆç”¨æˆ·ä¸Šä¼ å›¾ç‰‡ï¼Œ å›¾ç‰‡åå¯èƒ½é‡å¤ï¼‰
+            String FieldName = item.getFieldName();// è¾“å…¥æ¡†çš„nameå€¼
             String name = item.getName();
             String fileType = name.substring(name.lastIndexOf(".") + 1);
-            String fileName = UUID.randomUUID().toString();// Éú³ÉÓÃ²»ÖØ¸´µÄÎÄ¼şÃû
-            // Éú³ÉÎÄ¼ş¼ĞÃû
+            String fileName = UUID.randomUUID().toString();// ç”Ÿæˆç”¨ä¸é‡å¤çš„æ–‡ä»¶å
+            // ç”Ÿæˆæ–‡ä»¶å¤¹å
 			Date time = new Date();
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			String strTime = simpleDateFormat.format(time);
-            // pathÊôĞÔfilename
-            String path = strTime +File.separator + "books";// ´æ·Åµ½book¶ÔÏóÖĞµÄÂ·¾¶
-//            String path = "books";// ´æ·Åµ½book¶ÔÏóÖĞ
+            // pathå±æ€§filename
+            String path = strTime +File.separator + "books";// å­˜æ”¾åˆ°bookå¯¹è±¡ä¸­çš„è·¯å¾„
+//            String path = "books";// å­˜æ”¾åˆ°bookå¯¹è±¡ä¸­
             String filename = fileName + "." + fileType;
-            // fileDir£ºÍ¼Æ¬×îÖÕ´æÔÚÓÚfileDir
+            // fileDirï¼šå›¾ç‰‡æœ€ç»ˆå­˜åœ¨äºfileDir
             File fileDir = new File(dirImages, path + File.separator + filename);
-            // InputStream inputStream = item.getInputStream(); ´ÓÇëÇó ¶ÔÏóÖĞ Í¨¹ıÁ÷µÄ·½Ê½
-            // °Ñ ÉÏ´«µÄÎÄ¼ş¼ÓÔØµ½ ÄÚ´æÖĞ ¹¹½¨Êä³öÁ÷
-            File parentDir = new File(dirImages, path);// ¸¸Ä¿Â¼
+            // InputStream inputStream = item.getInputStream(); ä»è¯·æ±‚ å¯¹è±¡ä¸­ é€šè¿‡æµçš„æ–¹å¼
+            // æŠŠ ä¸Šä¼ çš„æ–‡ä»¶åŠ è½½åˆ° å†…å­˜ä¸­ æ„å»ºè¾“å‡ºæµ
+            File parentDir = new File(dirImages, path);// çˆ¶ç›®å½•
             if (!parentDir.exists()) {
                 parentDir.mkdirs();
             }
@@ -275,15 +275,15 @@ public class ManagerServlet extends HttpServlet {
 
     }
 
-    // °ÑFielditemÖĞµÄÊı¾İ·â×°µ½bookÖĞ
+    // æŠŠFielditemä¸­çš„æ•°æ®å°è£…åˆ°bookä¸­
     private void processFormField(FileItem item, HttpServletRequest req, Book book) {
         try {
-            // itemÃ¿Ò»¸öitem¶ÔÏó´ú±íÒ»¸öÊäÈë¿ò
-            // 01. »ñÈ¡inputÊäÈë¿òµÄ name µÄÖµ ¸ù¾İ¹æ·¶ ÊäÈë¿ò µÄnameµÄÈ¡Öµ£¬ Óë javabean ÖĞµÄ ÊôĞÔÃûÒ»ÖÂ
+            // itemæ¯ä¸€ä¸ªitemå¯¹è±¡ä»£è¡¨ä¸€ä¸ªè¾“å…¥æ¡†
+            // 01. è·å–inputè¾“å…¥æ¡†çš„ name çš„å€¼ æ ¹æ®è§„èŒƒ è¾“å…¥æ¡† çš„nameçš„å–å€¼ï¼Œ ä¸ javabean ä¸­çš„ å±æ€§åä¸€è‡´
             String inputName = item.getFieldName();
             String inputValue = item.getString("UTF-8");
-            if (inputName.equals("categoryid")) {// ·ÖÀàµ¥¶À´¦Àí
-                // »ñÈ¡µ½Ñ¡ÔñµÄ·ÖÀàµÄid£¬¸ù¾İÕâ¸öidÈ¡µ½·ÖÀàµÄĞÅÏ¢
+            if (inputName.equals("categoryid")) {// åˆ†ç±»å•ç‹¬å¤„ç†
+                // è·å–åˆ°é€‰æ‹©çš„åˆ†ç±»çš„idï¼Œæ ¹æ®è¿™ä¸ªidå–åˆ°åˆ†ç±»çš„ä¿¡æ¯
                 String categoryid = item.getString();
                 System.out.println("categoryid=" + categoryid);
                 Category category = service.findCategoryById(categoryid);
@@ -297,22 +297,22 @@ public class ManagerServlet extends HttpServlet {
         }
     }
 
-    // Ìí¼ÓÊé¼®·ÖÀà
+    // æ·»åŠ ä¹¦ç±åˆ†ç±»
     private void addCategory(HttpServletRequest req, HttpServletResponse resp) {
         try {
             Category category = new Category();
             BeanUtils.populate(category, req.getParameterMap());
-            service.addCategory(category);// µ÷ÓÃÌí¼Ó·½·¨
+            service.addCategory(category);// è°ƒç”¨æ·»åŠ æ–¹æ³•
             resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                    + "/img/duigou.png'/>Ìí¼Ó³É¹¦£¡</div>");
+                    + "/img/duigou.png'/>æ·»åŠ æˆåŠŸï¼</div>");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void getCategoryBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Book> books = service.getCategoryBook(req.getParameter("cid"));// ÎÄÑ§ÒÕÊõÀàÊé¼®
-        List<Category> categoryList = service.findAllCategory();// ·ÖÀà
+        List<Book> books = service.getCategoryBook(req.getParameter("cid"));// æ–‡å­¦è‰ºæœ¯ç±»ä¹¦ç±
+        List<Category> categoryList = service.findAllCategory();// åˆ†ç±»
         req.setAttribute("books", books);
         req.setAttribute("categoryList", categoryList);
         req.getRequestDispatcher("/admin/booksList.jsp").forward(req, resp);
@@ -339,14 +339,14 @@ public class ManagerServlet extends HttpServlet {
         String book_kunumber = req.getParameter("book_kunumber");
         service.editBook(book_id, book_name, book_author, book_press, book_desc, book_price, book_kunumber);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+                + "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
     }
 
     private void delBook(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String book_id = req.getParameter("book_id");
         service.delBook(book_id);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>É¾³ı³É¹¦£¡</div>");
+                + "/img/duigou.png'/>åˆ é™¤æˆåŠŸï¼</div>");
     }
 
     private void categoryList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -366,17 +366,17 @@ public class ManagerServlet extends HttpServlet {
                 req.getParameter("category_desc"));
         service.editCategory(category);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>ĞŞ¸Ä³É¹¦£¡</div>");
+                + "/img/duigou.png'/>ä¿®æ”¹æˆåŠŸï¼</div>");
     }
 
     private void delCategory(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String category_id = req.getParameter("category_id");
         service.delCategory(category_id);
         resp.getWriter().write("<div style='text-align: center;margin-top: 260px'><img src='" + req.getContextPath()
-                + "/img/duigou.png'/>É¾³ı³É¹¦£¡</div>");
+                + "/img/duigou.png'/>åˆ é™¤æˆåŠŸï¼</div>");
     }
 
-    // Í¨¹ıÊé¼®idÕÒµ½Êé¼®ĞÅÏ¢
+    // é€šè¿‡ä¹¦ç±idæ‰¾åˆ°ä¹¦ç±ä¿¡æ¯
     private Book findBookById(String book_id) {
         return service.findBookById(book_id);
     }

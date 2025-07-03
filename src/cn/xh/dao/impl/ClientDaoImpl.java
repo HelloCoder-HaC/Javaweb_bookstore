@@ -1,3 +1,7 @@
+
+/**
+ * 实现ClientDao接口的具体类
+ */
 package cn.xh.dao.impl;
 
 import cn.xh.dao.ClientDao;
@@ -13,7 +17,13 @@ import java.util.List;
 
 public class ClientDaoImpl implements ClientDao {
 
-	// ???
+	/**
+	 * 用户登录方法
+	 *
+	 * @param username 用户名
+	 * @param password 密码
+	 * @return 如果登录成功返回User对象，否则返回空User对象
+	 */
 	@Override
 	public User login(String username, String password) {
 		User user = new User();
@@ -33,13 +43,20 @@ public class ClientDaoImpl implements ClientDao {
 				user.setAddress(executeQuery.getString("user_address"));
 				user.setId(executeQuery.getString("user_id"));
 			} else {
+				// 如果查询结果为空，返回空User对象
 			}
 		} catch (Exception e) {
+			// 异常处理
 		}
 		return user;
 	}
 
-	// ???
+	/**
+	 * 用户注册方法
+	 *
+	 * @param user 用户对象
+	 * @return 如果用户名已存在返回true，否则插入用户信息并返回false
+	 */
 	@Override
 	public boolean register(User user) {
 		Connection connection = JDBCUtil.getConnection();
@@ -48,6 +65,7 @@ public class ClientDaoImpl implements ClientDao {
 			ResultSet resultSet = statement
 					.executeQuery("select * from user where user_username='" + user.getUsername() + "'");
 			if (resultSet.next() == true) {
+				// 如果用户名已存在，返回true
 				return true;
 			} else {
 				try {
@@ -61,7 +79,7 @@ public class ClientDaoImpl implements ClientDao {
 					preparedStatement.setString(6, user.getTel());
 					preparedStatement.setString(7, user.getAddress());
 
-					// ??
+					// 执行插入操作
 					preparedStatement.executeUpdate();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -74,24 +92,26 @@ public class ClientDaoImpl implements ClientDao {
 		return false;
 	}
 
+	/**
+	 * 根据类别ID获取书籍列表
+	 *
+	 * @param cid 类别ID
+	 * @return 书籍列表
+	 */
 	@Override
 	public List<Book> getCategoryBook(String cid) {
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement preparedStatement = null;
 
-			if (cid==null){
-				preparedStatement=  connection.prepareStatement(
-                        "select * from bookdb");
-            }else {
-				preparedStatement =  connection.prepareStatement(
-                        "select * from bookdb where book_category = (select category_id from category where category_id = '"+cid+"')");
-            }
+			if (cid == null) {
+				preparedStatement = connection.prepareStatement("select * from bookdb");
+			} else {
+				preparedStatement = connection.prepareStatement(
+						"select * from bookdb where book_category = (select category_id from category where category_id = '" + cid + "')");
+			}
 
-
-
-            ResultSet rs = preparedStatement.executeQuery();
-
+			ResultSet rs = preparedStatement.executeQuery();
 
 			List<Book> list = new ArrayList<Book>();
 			while (rs.next()) {
@@ -114,10 +134,15 @@ public class ClientDaoImpl implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		throw new RuntimeException("?????????");
+		throw new RuntimeException("获取书籍列表失败");
 	}
 
-	// ????鼮????id????鼮??????????
+	/**
+	 * 根据类别ID获取类别对象
+	 *
+	 * @param book_category 类别ID
+	 * @return 类别对象
+	 */
 	private Category findCategoryById(String book_category) {
 		Category category = new Category();
 		try {
@@ -135,16 +160,20 @@ public class ClientDaoImpl implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		throw new RuntimeException("");
+		throw new RuntimeException("获取类别失败");
 	}
 
-	// ??????????鼮?б?
+	/**
+	 * 获取人文社科类书籍列表
+	 *
+	 * @return 人文社科类书籍列表
+	 */
 	@Override
 	public List<Book> rwsk() {
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from bookdb where book_category = (select category_id from category where category_name = '???????')");
+					"select * from bookdb where book_category = (select category_id from category where category_name = '人文社科')");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			List<Book> list = new ArrayList<Book>();
@@ -168,16 +197,20 @@ public class ClientDaoImpl implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		throw new RuntimeException("?????????");
+		throw new RuntimeException("获取人文社科类书籍列表失败");
 	}
 
-	// ?????????鼮?б?
+	/**
+	 * 获取生活类书籍列表
+	 *
+	 * @return 生活类书籍列表
+	 */
 	@Override
 	public List<Book> sets() {
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from bookdb where book_category = (select category_id from category where category_name = '??????')");
+					"select * from bookdb where book_category = (select category_id from category where category_name = '生活')");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			List<Book> list = new ArrayList<Book>();
@@ -201,16 +234,20 @@ public class ClientDaoImpl implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		throw new RuntimeException("?????????");
+		throw new RuntimeException("获取生活类书籍列表失败");
 	}
 
-	// ??????????鼮?б?
+	/**
+	 * 获取经济类书籍列表
+	 *
+	 * @return 经济类书籍列表
+	 */
 	@Override
 	public List<Book> jjjr() {
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from bookdb where book_category = (select category_id from category where category_name = '???????')");
+					"select * from bookdb where book_category = (select category_id from category where category_name = '经济')");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			List<Book> list = new ArrayList<Book>();
@@ -234,16 +271,20 @@ public class ClientDaoImpl implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		throw new RuntimeException("?????????");
+		throw new RuntimeException("获取经济类书籍列表失败");
 	}
 
-	// ??????????鼮?б?
+	/**
+	 * 获取科技类书籍列表
+	 *
+	 * @return 科技类书籍列表
+	 */
 	@Override
 	public List<Book> kxjs() {
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from bookdb where book_category = (select category_id from category where category_name = '???????')");
+					"select * from bookdb where book_category = (select category_id from category where category_name = '科技')");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			List<Book> list = new ArrayList<Book>();
@@ -267,16 +308,20 @@ public class ClientDaoImpl implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		throw new RuntimeException("?????????");
+		throw new RuntimeException("获取科技类书籍列表失败");
 	}
 
-	// ???????????鼮?б?
+	/**
+	 * 获取教育类书籍列表
+	 *
+	 * @return 教育类书籍列表
+	 */
 	@Override
 	public List<Book> jyks() {
 		try {
 			Connection connection = JDBCUtil.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select * from bookdb where book_category = (select category_id from category where category_name = '????????')");
+					"select * from bookdb where book_category = (select category_id from category where category_name = '教育考试')");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			List<Book> list = new ArrayList<Book>();

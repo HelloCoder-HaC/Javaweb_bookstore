@@ -37,7 +37,7 @@ public class OrderDaoImpl implements OrdetrDao {
 			prepareStatement.setString(6, o.getUser().getId());
 			prepareStatement.executeUpdate();
 
-			// ±£´æ¶©µ¥ÏîĞÅÏ¢
+			// ä¿å­˜è®¢å•é¡¹ä¿¡æ¯
 			List<Orderitem> items = o.getItems();
 			for (Orderitem item : items) {
 				PreparedStatement preparedStatement2 = connection.prepareStatement(
@@ -94,7 +94,7 @@ public class OrderDaoImpl implements OrdetrDao {
 		throw new RuntimeException("");
 	}
 
-	// ¸ù¾İ¶©µ¥idÕÒµ½¶©µ¥Ïî
+	// æ ¹æ®è®¢å•idæ‰¾åˆ°è®¢å•é¡¹
 	private List<Orderitem> finOrdersItemsByNum(String ordernum) {
 		try {
 			PreparedStatement prepareStatement = connection
@@ -119,7 +119,7 @@ public class OrderDaoImpl implements OrdetrDao {
 		throw new RuntimeException("");
 	}
 
-	// ¸ù¾İÊé¼®idÕÒµ½Êé¼®ĞÅÏ¢
+	// æ ¹æ®ä¹¦ç±idæ‰¾åˆ°ä¹¦ç±ä¿¡æ¯
 	private Book findBookById(String book_id) {
 		try {
 			PreparedStatement prepareStatement = connection.prepareStatement("select * from bookdb where book_id=?");
@@ -147,7 +147,7 @@ public class OrderDaoImpl implements OrdetrDao {
 		throw new RuntimeException("");
 	}
 
-	// ¸ù¾İÊé¼®·ÖÀàµÄidÕÒµ½Êé¼®·ÖÀàĞÅÏ¢
+	// æ ¹æ®ä¹¦ç±åˆ†ç±»çš„idæ‰¾åˆ°ä¹¦ç±åˆ†ç±»ä¿¡æ¯
 	private Category findCategoryById(String category_id) {
 		Category category = new Category();
 		try {
@@ -167,7 +167,7 @@ public class OrderDaoImpl implements OrdetrDao {
 		throw new RuntimeException("");
 	}
 
-	// ¸ù¾İidÕÒµ½ÓÃ»§ĞÅÏ¢
+	// æ ¹æ®idæ‰¾åˆ°ç”¨æˆ·ä¿¡æ¯
 	private User findUserByid(String user_id) {
 		try {
 			User user = new User();

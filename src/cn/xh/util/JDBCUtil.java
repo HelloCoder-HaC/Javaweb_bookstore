@@ -11,13 +11,13 @@ public class JDBCUtil {
 	static Connection conn = null;
 
 	static {
-		// 初始化porperties文件
+		// 鍒濆鍖杙orperties鏂囦欢
 		ResourceBundle bundle = ResourceBundle.getBundle("jdbcConfig");
 		String dirver = bundle.getString("driverManager");
 		String url = bundle.getString("url");
 		String user = bundle.getString("user");
 		String password = bundle.getString("password");
-		// 注册驱动
+		// 娉ㄥ唽椹卞姩
 		try {
 			Class.forName(dirver);
 		} catch (Exception e) {
@@ -34,7 +34,7 @@ public class JDBCUtil {
 	public static Connection getConnection() {
 		return conn;
 	}
-	
+
 	public static void release(ResultSet set, Statement stmt, Connection connection) throws SQLException {
 		if (set != null) {
 			set.close();

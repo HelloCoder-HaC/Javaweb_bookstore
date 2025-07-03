@@ -10,14 +10,14 @@ import cn.xh.domain.User;
 
 public interface OrderService {
 	/**
-	 * Éú³É¶©µ¥
+	 * ç”Ÿæˆè®¢å•
 	 * 
 	 * @param o
 	 */
 	void genOrder(Order o);
 
 	/**
-	 * ¸ù¾İ¶©µ¥ºÅ²éÑ¯¶©µ¥
+	 * æ ¹æ®è®¢å•å·æŸ¥è¯¢è®¢å•
 	 * 
 	 * @param ordernum
 	 * @return
@@ -25,7 +25,7 @@ public interface OrderService {
 	Order findOrderByNum(String ordernum);
 
 	/**
-	 * ²éÑ¯¿Í»§µÄ¶©µ¥
+	 * æŸ¥è¯¢å®¢æˆ·çš„è®¢å•
 	 * 
 	 * @param user
 	 * @return

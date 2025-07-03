@@ -3,13 +3,13 @@ package cn.xh.domain;
 import java.io.Serializable;
 
 /*
- * 图书种类
+ * 鍥句功绉嶇被
  */
 public class Category implements Serializable {
 	
-	private String category_id;// 图书种类id
-	private String category_name;// 图书种类名称
-	private String category_desc;// 图书种类描述
+	private String category_id;// 鍥句功绉嶇被id
+	private String category_name;// 鍥句功绉嶇被鍚嶇О
+	private String category_desc;// 鍥句功绉嶇被鎻忚堪
 
 	public Category() {
 		super();

@@ -17,7 +17,7 @@ import cn.xh.util.JDBCUtil;
 
 public class ManagerDaoImpl implements ManagerDao {
 
-	// ¹ÜÀíÔ±µÇÂ¼
+	// ç®¡ç†å‘˜ç™»å½•
 	@Override
 	public Administrator login(String username, String password) {
 		Administrator admin = new Administrator();
@@ -41,7 +41,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		return admin;
 	}
 
-	// ¹ÜÀíÔ±ĞÅÏ¢ĞŞ¸Ä
+	// ç®¡ç†å‘˜ä¿¡æ¯ä¿®æ”¹
 	@Override
 	public void managerInformation(Administrator admin) {
 		try {
@@ -58,7 +58,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		}
 	}
 
-	// ¹ÜÀíÔ±µÇÂ¼ÃÜÂëĞŞ¸Ä
+	// ç®¡ç†å‘˜ç™»å½•å¯†ç ä¿®æ”¹
 	@Override
 	public void managerPassword(Administrator admin) {
 		try {
@@ -74,7 +74,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		}
 	}
 
-	// »ñµÃËùÓĞÊé¼®·ÖÀàĞÅÏ¢
+	// è·å¾—æ‰€æœ‰ä¹¦ç±åˆ†ç±»ä¿¡æ¯
 	@Override
 	public List<Category> findAllCategory() {
 		List<Category> list = new ArrayList<Category>();
@@ -95,7 +95,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		return list;
 	}
 
-	// Í¨¹ı·ÖÀàidÕÒµ½·ÖÀàĞÅÏ¢
+	// é€šè¿‡åˆ†ç±»idæ‰¾åˆ°åˆ†ç±»ä¿¡æ¯
 	@Override
 	public Category findCategoryById(String categoryid) {
 		Category category = new Category();
@@ -117,7 +117,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		return category;
 	}
 
-	// Ìí¼ÓÍ¼Êé
+	// æ·»åŠ å›¾ä¹¦
 	@Override
 	public void addBook(Book book) {
 		try {
@@ -141,7 +141,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		}
 	}
 
-	// Ìí¼ÓÊé¼®·ÖÀà
+	// æ·»åŠ ä¹¦ç±åˆ†ç±»
 	@Override
 	public void addCategory(Category category) {
 		try {
@@ -156,7 +156,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		}
 	}
 
-	//·ÖÀàÊé¼®
+	//åˆ†ç±»ä¹¦ç±
 	@Override
 	public List<Book> getCategoryBook(String cid) {
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
@@ -164,7 +164,7 @@ public class ManagerDaoImpl implements ManagerDao {
 	}
 
 
-	// ¸ù¾İÊé¼®idÕÒµ½Êé¼®ĞÅÏ¢
+	// æ ¹æ®ä¹¦ç±idæ‰¾åˆ°ä¹¦ç±ä¿¡æ¯
 	@Override
 	public Book findBookById(String book_id) {
 		Book book = new Book();
@@ -193,7 +193,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		return book;
 	}
 
-	// É¾³ıÊé¼®
+	// åˆ é™¤ä¹¦ç±
 	@Override
 	public void delBook(String book_id) {
 		try {
@@ -282,7 +282,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		throw new RuntimeException();
 	}
 
-	// Ìí¼Ó¹ÜÀíÈËÔ±
+	// æ·»åŠ ç®¡ç†äººå‘˜
 	@Override
 	public void addAdmin(Administrator admin) {
 		try {
@@ -302,7 +302,7 @@ public class ManagerDaoImpl implements ManagerDao {
 
 	}
 
-	// Êé¼®ÏúÊÛÇé¿ö
+	// ä¹¦ç±é”€å”®æƒ…å†µ
 	@Override
 	public List<Book> sales() {
 		try {

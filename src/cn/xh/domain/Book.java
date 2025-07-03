@@ -1,50 +1,33 @@
+
 package cn.xh.domain;
 
 import java.io.Serializable;
 
-/*
- * �鼮ʵ����
+/**
+ * 图书实体类
  */
 public class Book implements Serializable {
-	private String book_id;// �鼮id
-	private String book_name;// �鼮����
-	private String book_author;// �鼮����
-	private String book_press;// ������
-	private Category category;// �鼮����
-	private String filename; // ͼƬ������
-	private String path; // ·��
-	private String book_desc;// ���
-	private double book_price;// �鼮�۸�
-	private int book_kunumber;// ���
-	private int book_xiaonumber;// ����
+	private String book_id; // 图书ID
 
+
+
+	private String book_name; // 图书名称
+	private String book_author; // 图书作者
+	private String book_press; // 出版社
+	private Category category; // 图书类别
+	private String filename; // 图片文件名
+	private String path; // 路径
+	private String book_desc; // 描述
+	private double book_price; // 图书价格
+	private int book_kunumber; // 库存数量
+	private int book_xiaonumber; // 销售数量
+
+	/**
+	 * 默认构造函数
+	 */
 	public Book() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Book(String book_id, String book_name, String book_author, String book_press, Category category,
-			String filename, String path, String book_desc, double book_price, int book_kunumber, int book_xiaonumber) {
-		super();
-		this.book_id = book_id;
-		this.book_name = book_name;
-		this.book_author = book_author;
-		this.book_press = book_press;
-		this.category = category;
-		this.filename = filename;
-		this.path = path;
-		this.book_desc = book_desc;
-		this.book_price = book_price;
-		this.book_kunumber = book_kunumber;
-		this.book_xiaonumber = book_xiaonumber;
-	}
-
-	public String getBook_id() {
-		return book_id;
-	}
-
-	public void setBook_id(String book_id) {
-		this.book_id = book_id;
 	}
 
 	public String getBook_name() {
@@ -53,6 +36,14 @@ public class Book implements Serializable {
 
 	public void setBook_name(String book_name) {
 		this.book_name = book_name;
+	}
+
+	public String getBook_id() {
+		return book_id;
+	}
+
+	public void setBook_id(String book_id) {
+		this.book_id = book_id;
 	}
 
 	public String getBook_author() {
@@ -127,6 +118,45 @@ public class Book implements Serializable {
 		this.book_xiaonumber = book_xiaonumber;
 	}
 
+	/**
+	 * 全参数构造函数
+	 *
+	 * @param book_id       图书ID
+	 * @param book_name     图书名称
+	 * @param book_author   图书作者
+	 * @param book_press    出版社
+	 * @param category      图书类别
+	 * @param filename      图片文件名
+	 * @param path          路径
+	 * @param book_desc     描述
+	 * @param book_price    图书价格
+	 * @param book_kunumber 库存数量
+	 * @param book_xiaonumber 销售数量
+	 */
+	public Book(String book_id, String book_name, String book_author, String book_press, Category category,
+				String filename, String path, String book_desc, double book_price, int book_kunumber, int book_xiaonumber) {
+		super();
+		this.book_id = book_id;
+		this.book_name = book_name;
+		this.book_author = book_author;
+		this.book_press = book_press;
+		this.category = category;
+		this.filename = filename;
+		this.path = path;
+		this.book_desc = book_desc;
+		this.book_price = book_price;
+		this.book_kunumber = book_kunumber;
+		this.book_xiaonumber = book_xiaonumber;
+	}
+
+	// Getters and Setters 方法
+	// ...
+
+	/**
+	 * 重写toString方法
+	 *
+	 * @return 图书对象的字符串表示
+	 */
 	@Override
 	public String toString() {
 		return "Book [book_id=" + book_id + ", book_name=" + book_name + ", book_author=" + book_author

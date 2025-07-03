@@ -3,17 +3,17 @@ package cn.xh.domain;
 import java.io.Serializable;
 
 /*
- * ÓÃ»§ÊµÌåÀà
+ * ç”¨æˆ·å®ä½“ç±»
  */
 public class User implements Serializable {
 
 	private String id;// id
-	private String username; // ÓÃ»§Ãû
-	private String password; // ÃÜÂë
-	private String name; // ĞÕÃû
-	private String sex; // ĞÔ±ğ
-	private String tel; // µç»°
-	private String address; // µØÖ·
+	private String username; // ç”¨æˆ·å
+	private String password; // å¯†ç 
+	private String name; // å§“å
+	private String sex; // æ€§åˆ«
+	private String tel; // ç”µè¯
+	private String address; // åœ°å€
 
 	public User() {
 		super();

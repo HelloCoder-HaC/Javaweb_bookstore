@@ -6,12 +6,12 @@ import java.util.Map;
 
 import cn.xh.domain.Book;
 
-//¹ºÎï³µ
+//è´­ç‰©è½¦
 public class Cart implements Serializable {
-	// CartItemÊÇ¹ºÎïÏî
+	// CartItemæ˜¯è´­ç‰©é¡¹
 	private Map<String, CartItem> itmes = new HashMap<String, CartItem>();
-	private int totalQuantity;// ×ÜÊıÁ¿
-	private float totalMoney;// ×Ü½ğ¶î
+	private int totalQuantity;// æ€»æ•°é‡
+	private float totalMoney;// æ€»é‡‘é¢
 
 	public int getTotalQuantity() {
 		totalQuantity = 0;
@@ -41,10 +41,10 @@ public class Cart implements Serializable {
 		return itmes;
 	}
 
-	// Ïò¹ºÎï³µÖĞÌí¼ÓÒ»±¾Êé
+	// å‘è´­ç‰©è½¦ä¸­æ·»åŠ ä¸€æœ¬ä¹¦
 	public void addBook(Book book) {
 		if (itmes.containsKey(book.getBook_id())) {
-			// ÓĞ¶ÔÓ¦µÄ¹ºÎïÏî
+			// æœ‰å¯¹åº”çš„è´­ç‰©é¡¹
 			CartItem item = itmes.get(book.getBook_id());
 			item.setQuantity(item.getQuantity() + 1);
 		} else {

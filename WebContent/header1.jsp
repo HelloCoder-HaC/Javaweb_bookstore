@@ -160,8 +160,9 @@
                        role="button">注销</a>
                 </div>
                 <div style="float: right; margin-right: 7px; margin-top: 10px">
-                    <a class="btn btn-default btn-sm" href="<%=basePath%>/showCart.jsp"
-                       role="button">购物车</a>
+                    <a class="btn btn-default btn-sm" target="_parent"
+                       href="<%=basePath%>/client/ClientServlet?op=showfavorite"
+                       role="button">收藏夹</a>
                 </div>
                 <div style="float: right; margin-right: 7px; margin-top: 10px">
                     <a class="btn btn-default btn-sm"

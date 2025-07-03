@@ -2,11 +2,11 @@ package cn.xh.domain;
 
 import java.io.Serializable;
 
-//ÊÕ²Ø¼Ğ
+//æ”¶è—å¤¹
 public class Favorite implements Serializable {
-	private String favorite_id;// ÊÕ²ØÏîid
-	private User user;// ÓÃ»§ĞÅÏ¢
-	private Book book;// Êé¼®ĞÅÏ¢
+	private String favorite_id;// æ”¶è—é¡¹id
+	private User user;// ç”¨æˆ·ä¿¡æ¯
+	private Book book;// ä¹¦ç±ä¿¡æ¯
 
 	public Favorite() {
 		super();
